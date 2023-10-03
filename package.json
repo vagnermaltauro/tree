@@ -10,9 +10,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vercel/og": "^0.5.17",
     "next": "13.5.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^3.22.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.2",
