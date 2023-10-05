@@ -14,6 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const body = treeInputSchema.parse(JSON.parse(req.body));
     const ast = await remark().use(remarkParse).parse(body.source);
+
     const tree = getItems(ast.children[0], {});
 
     return res.json({
@@ -22,7 +23,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   } catch (error) {
     console.log(error);
-
     if (error instanceof z.ZodError) {
       return res.status(422).json(error);
     }
@@ -38,7 +38,7 @@ function getItems(node, current) {
 
   if (node.type === 'paragraph') {
     visit(node, (item) => {
-      if (item.type === 'next') {
+      if (item.type === 'text') {
         current.value = item.value;
       }
     });
