@@ -2,6 +2,10 @@
   "name": "tree",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Vagner",
+    "url": "https://twitter.com/vagnermaltauro"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
